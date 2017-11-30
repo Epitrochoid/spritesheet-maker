@@ -1,3 +1,4 @@
+from math import ceil
 from PIL import Image
 from os import listdir
 
@@ -10,7 +11,7 @@ def main():
     png_files = [f for f in all_files if f.endswith('.png')]
     png_files.sort()
     num_wide = int(sys.argv[2])
-    num_heigh = len(png_files) // num_wide
+    num_heigh = ceil(len(png_files) / num_wide)
     dimensions = (int(sys.argv[3]), int(sys.argv[4]))
 
     out_img = Image.new('RGBA', (num_wide * dimensions[0], num_heigh * dimensions[1]))
